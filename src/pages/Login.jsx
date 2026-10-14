@@ -13,9 +13,21 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
 
   // Suggested login helper for demo
-  const handleQuickLogin = (demoEmail) => {
+  const handleQuickLogin = async (demoEmail) => {
     setEmail(demoEmail);
     setPassword("password123");
+    setError("");
+    setLoading(true);
+
+    const result = await login(demoEmail, "password123");
+    setLoading(false);
+
+    if (result.success) {
+      const from = location.state?.from?.pathname || "/dashboard";
+      navigate(from, { replace: true });
+    } else {
+      setError(result.error);
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -23,7 +35,7 @@ export default function Login() {
     setError("");
     setLoading(true);
 
-    const result = await login(email, password);
+    const result = await login(email.trim(), password.trim());
     setLoading(false);
 
     if (result.success) {
@@ -114,6 +126,9 @@ export default function Login() {
         <div className="mt-8 pt-6 border-t border-slate-100 space-y-3">
           <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider text-center">
             Demo Credentials
+          </p>
+          <p className="text-[11px] text-slate-400 text-center">
+            Click a role button to log in instantly (Password: <code className="bg-slate-100 px-1.5 py-0.5 rounded text-indigo-600 font-semibold">password123</code>)
           </p>
           <div className="grid grid-cols-3 gap-2">
             <button

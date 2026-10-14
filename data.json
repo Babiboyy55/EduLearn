@@ -1,0 +1,195 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Admin User",
+      "email": "admin@edutrack.com",
+      "password": "password123",
+      "role": "ADMIN",
+      "active": true
+    },
+    {
+      "id": 2,
+      "name": "Dr. Jane Doe",
+      "email": "instructor@edutrack.com",
+      "password": "password123",
+      "role": "INSTRUCTOR",
+      "active": true
+    },
+    {
+      "id": 3,
+      "name": "Alice Smith",
+      "email": "student@edutrack.com",
+      "password": "password123",
+      "role": "STUDENT",
+      "active": true
+    },
+    {
+      "id": 4,
+      "name": "Bob Johnson",
+      "email": "bob@edutrack.com",
+      "password": "password123",
+      "role": "STUDENT",
+      "active": true
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "title": "Introduction to React & Tailwind CSS",
+      "description": "Learn how to build beautiful, modern, and responsive user interfaces using React and Tailwind CSS. We will cover components, state, hooks, and clean utility design.",
+      "instructorId": 2,
+      "instructorName": "Dr. Jane Doe",
+      "category": "Web Development",
+      "price": 99.99,
+      "thumbnail": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=500&auto=format&fit=crop&q=60",
+      "status": "APPROVED",
+      "modules": [
+        {
+          "id": 101,
+          "title": "Module 1: Getting Started with React",
+          "order": 1,
+          "lectures": [
+            {
+              "id": 1001,
+              "title": "1.1 Introduction to the Course",
+              "contentUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+              "type": "VIDEO"
+            },
+            {
+              "id": 1002,
+              "title": "1.2 Setting Up Your Environment",
+              "contentUrl": "Open your terminal and run 'npm create vite@latest' to bootstrap a clean workspace. Use CSS grid and flexbox inside Tailwind to arrange containers.",
+              "type": "TEXT"
+            }
+          ]
+        },
+        {
+          "id": 102,
+          "title": "Module 2: Tailwind Styling Foundations",
+          "order": 2,
+          "lectures": [
+            {
+              "id": 1003,
+              "title": "2.1 Utility-First Principles",
+              "contentUrl": "We prioritize utility-first design: no custom styles or random paddings, use consistent margins like 'p-6', 'space-y-4', and soft slate-colored backgrounds.",
+              "type": "TEXT"
+            },
+            {
+              "id": 1004,
+              "title": "2.2 Designing Dark Modes",
+              "contentUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+              "type": "VIDEO"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Advanced Java Programming & Spring Boot",
+      "description": "Deep dive into Java 21 features, Spring Framework 6, JPA/Hibernate, Spring Security with JWT tokens, and building scalable production backends.",
+      "instructorId": 2,
+      "instructorName": "Dr. Jane Doe",
+      "category": "Backend Development",
+      "price": 149.99,
+      "thumbnail": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500&auto=format&fit=crop&q=60",
+      "status": "APPROVED",
+      "modules": [
+        {
+          "id": 201,
+          "title": "Module 1: Java 21 Virtual Threads & Structured Concurrency",
+          "order": 1,
+          "lectures": [
+            {
+              "id": 2001,
+              "title": "1.1 Java 21 Overview",
+              "contentUrl": "Java 21 introduces virtual threads (Project Loom) that simplify writing high-throughput, concurrent applications.",
+              "type": "TEXT"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "enrollments": [
+    {
+      "id": 1,
+      "studentId": 3,
+      "courseId": 1,
+      "progress": 50,
+      "enrolledDate": "2026-06-01",
+      "completedLectures": [
+        1001,
+        1002
+      ]
+    },
+    {
+      "id": 2,
+      "studentId": 3,
+      "courseId": 2,
+      "progress": 0,
+      "enrolledDate": "2026-10-09",
+      "completedLectures": []
+    }
+  ],
+  "assignments": [
+    {
+      "id": 1,
+      "courseId": 1,
+      "title": "Assignment 1: Responsive Card Layout",
+      "description": "Design a responsive profile card using React functional components and Tailwind CSS utility classes. Submit a live website URL or source code path.",
+      "dueDate": "2026-07-20",
+      "type": "ASSIGNMENT"
+    },
+    {
+      "id": 2,
+      "courseId": 1,
+      "title": "Module 1 Quiz: React Basics",
+      "description": "Complete the questions: 1. What hook manages state? 2. What are the key benefits of virtual DOM?",
+      "dueDate": "2026-07-15",
+      "type": "QUIZ"
+    }
+  ],
+  "submissions": [
+    {
+      "id": 1,
+      "assignmentId": 1,
+      "studentId": 3,
+      "fileUrl": "https://github.com/alice/react-card",
+      "grade": "A",
+      "status": "GRADED",
+      "submissionDate": "2026-07-01T12:00:00Z"
+    }
+  ],
+  "discussions": [
+    {
+      "id": 1,
+      "courseId": 1,
+      "userId": 3,
+      "userName": "Alice Smith",
+      "message": "Hi Dr. Doe, will we cover advanced routing in React Router v6?",
+      "parentId": null,
+      "createdAt": "2026-07-01T14:30:00Z"
+    },
+    {
+      "id": 2,
+      "courseId": 1,
+      "userId": 2,
+      "userName": "Dr. Jane Doe",
+      "message": "Yes, Alice! Module 3 will cover loaders, nested routing, and action hooks.",
+      "parentId": 1,
+      "createdAt": "2026-07-01T16:00:00Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": 1,
+      "userId": 3,
+      "title": "Assignment Graded",
+      "message": "Your submission for 'Assignment 1: Responsive Card Layout' was graded 'A'!",
+      "read": false,
+      "createdAt": "2026-07-01T16:05:00Z"
+    }
+  ]
+}

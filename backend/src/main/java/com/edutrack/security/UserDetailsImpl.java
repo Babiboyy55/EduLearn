@@ -2,8 +2,6 @@ package com.edutrack.security;
 
 import com.edutrack.entity.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,8 +9,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
-@AllArgsConstructor
-@Getter
 public class UserDetailsImpl implements UserDetails {
 
     private Long id;
@@ -25,6 +21,19 @@ public class UserDetailsImpl implements UserDetails {
     private String role;
     private Collection<? extends GrantedAuthority> authorities;
     private boolean active;
+
+    public UserDetailsImpl() {
+    }
+
+    public UserDetailsImpl(Long id, String name, String email, String password, String role, Collection<? extends GrantedAuthority> authorities, boolean active) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.authorities = authorities;
+        this.active = active;
+    }
 
     public static UserDetailsImpl build(User user) {
         List<GrantedAuthority> authorities = List.of(
@@ -40,6 +49,26 @@ public class UserDetailsImpl implements UserDetails {
                 authorities,
                 user.isActive()
         );
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public boolean isActive() {
+        return active;
     }
 
     @Override
